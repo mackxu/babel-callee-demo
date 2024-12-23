@@ -1,4 +1,3 @@
-import path from 'path'
 import { transformFileSync } from '@babel/core'
 import consoleInsertPlugin from './plugin/console-insert-plugin.js';
 
