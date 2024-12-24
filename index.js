@@ -56,7 +56,7 @@ const apis = ['log', 'info', 'debug', 'error'];
 //   }
 // });
 
-traverse(ast, {
+const visitor = {
   CallExpression(path) {
     if (path.node.isNew) return;
     // 通过path.get获取节点的字符串形式
@@ -75,7 +75,9 @@ traverse(ast, {
       path.insertBefore(newNode);
     }
   }
-})
+};
+
+traverse(ast, visitor);
 
 const output = generate.default(ast);
 console.log(output.code);
